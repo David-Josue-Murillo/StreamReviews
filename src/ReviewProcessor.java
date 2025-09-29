@@ -11,4 +11,11 @@ public class ReviewProcessor {
     public ReviewProcessor(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+    public List<Review> filtrarResenasPositivas() {
+        return reviews.stream()
+                .filter(review -> PALABRAS_POSITIVAS.stream()
+                        .anyMatch(palabra -> review.getText().toLowerCase().contains(palabra)))
+                .toList();
+    }
 }
