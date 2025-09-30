@@ -1,10 +1,10 @@
 public class Review {
     private String reviewId;
-    private String clienteId;
+    private Cliente clienteId;
     private Producto producto;
     private String text;
 
-    public Review(String reviewId, String clienteId, Producto producto, String text) {
+    public Review(String reviewId, Cliente clienteId, Producto producto, String text) {
         this.reviewId = reviewId;
         this.clienteId = clienteId;
         this.producto = producto;
@@ -20,11 +20,11 @@ public class Review {
         return this;
     }
 
-    public String getClienteId() {
+    public Cliente getClienteId() {
         return clienteId;
     }
 
-    public Review setClienteId(String clienteId) {
+    public Review setClienteId(Cliente clienteId) {
         this.clienteId = clienteId;
         return this;
     }
