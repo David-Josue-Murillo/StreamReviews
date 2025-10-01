@@ -31,4 +31,11 @@ public class ReviewProcessor {
                 .stream()
                 .collect(Collectors.groupingBy(Review::getProducto));
     }
+
+    // Contar reseñas positivas por producto
+    public Map<Producto, Long> contarResenasPositivasPorProducto() {
+        return filtrarResenasPositivas()
+                .stream()
+                .collect(Collectors.groupingBy(Review::getProducto, Collectors.counting()));
+    }
 }
