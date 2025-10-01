@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ReviewProcessor {
     // Lista de palabras clave que indican una reseña positiva
@@ -21,5 +23,13 @@ public class ReviewProcessor {
                         .anyMatch(palabra -> review.getText().toLowerCase().contains(palabra))
                 )
                 .toList();
+    }
+
+    // Agrupar las reseñas positivas por producto
+    public Map<Producto, List<Review>> agruparResenasPorProducto() {
+        // Implementación pendiente
+        return filtrarResenasPositivas()
+                .stream()
+                .collect(Collectors.groupingBy(Review::getProducto));
     }
 }
