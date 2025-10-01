@@ -34,33 +34,43 @@ public class Main {
 
         ReviewProcessor processor = new ReviewProcessor(reviews);
 
-        // Filtrar y mostrar las reseñas positivas
+        mostrarResenasPositivas(processor);
+        mostrarResenasPositivasAgrupadas(processor);
+        mostrarConteoResenasPorProducto(processor);
+        mostrarRankingProductos(processor);
+    }
+
+    // Filtrar y mostrar las reseñas positivas
+    private static void mostrarResenasPositivas(ReviewProcessor processor) {
         List<Review> positiveReviews = processor.filtrarResenasPositivas();
         System.out.println("=== Reseñas positivas ===");
         positiveReviews.forEach(review -> System.out.println("- " + review.getText()));
+    }
 
-
-        // Agrupar y mostrar las reseñas positivas por producto
-        System.out.println("\n === Reseñas positivas agrupadas por producto ===");
+    // Agrupar y mostrar las reseñas positivas por producto
+    private static void mostrarResenasPositivasAgrupadas(ReviewProcessor processor) {
+        System.out.println("\n=== Reseñas positivas agrupadas por producto ===");
         Map<Producto, List<Review>> reviewsAgrupadasPorProducto = processor.agruparResenasPorProducto();
         reviewsAgrupadasPorProducto.forEach((producto, resenas) -> {
             System.out.println("Producto: " + producto);
             resenas.forEach(resena -> System.out.println(" - " + resena.getText()));
         });
+    }
 
-
-        // Contar y mostrar el número de reseñas positivas por producto
+    // Contar y mostrar el número de reseñas positivas por producto
+    private static void mostrarConteoResenasPorProducto(ReviewProcessor processor) {
         System.out.println("\n=== Conteo de reseñas positivas por producto ===");
         Map<Producto, Long> conteoResenasPorProducto = processor.contarResenasPositivasPorProducto();
         conteoResenasPorProducto.forEach((producto, conteo) ->
-            System.out.println("Producto: " + producto + " - Reseñas positivas : " + conteo)
+                System.out.println("Producto: " + producto + " - Reseñas positivas : " + conteo)
         );
-
-        // Mostrar el ranking de productos por número de reseñas positivas
+    }
+    // Mostrar el ranking de productos por número de reseñas positivas
+    private static void mostrarRankingProductos(ReviewProcessor processor) {
         System.out.println("\n=== Ranking de productos por reseñas positivas ===");
         List<Map.Entry<Producto, Long>> rankingProductos = processor.rankingProductosPorResenasPositivas();
         rankingProductos.forEach(entry ->
-            System.out.println("Producto: " + entry.getKey() + " - Reseñas positivas: " + entry.getValue())
+                System.out.println("Producto: " + entry.getKey() + " - Reseñas positivas: " + entry.getValue())
         );
     }
 }
