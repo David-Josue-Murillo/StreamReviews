@@ -47,5 +47,13 @@ public class Main {
             System.out.println("Producto: " + producto);
             resenas.forEach(resena -> System.out.println(" - " + resena.getText()));
         });
+
+
+        // Contar y mostrar el número de reseñas positivas por producto
+        System.out.println("\n=== Conteo de reseñas positivas por producto ===");
+        Map<Producto, Long> conteoResenasPorProducto = processor.contarResenasPositivasPorProducto();
+        conteoResenasPorProducto.forEach((producto, conteo) ->
+            System.out.println("Producto: " + producto + " - Reseñas positivas : " + conteo)
+        );
     }
 }
