@@ -38,4 +38,13 @@ public class ReviewProcessor {
                 .stream()
                 .collect(Collectors.groupingBy(Review::getProducto, Collectors.counting()));
     }
+
+    // Generar un ranking de productos ordenado por cantidad de reseñas positivas.
+    public List<Map.Entry<Producto, Long>> rankingProductosPorResenasPositivas() {
+        return contarResenasPositivasPorProducto()
+                .entrySet()
+                .stream()
+                .sorted((e1, e2) -> Long.compare(e2.getValue(), e1.getValue()))
+                .toList();
+    }
 }
