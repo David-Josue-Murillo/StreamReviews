@@ -55,5 +55,12 @@ public class Main {
         conteoResenasPorProducto.forEach((producto, conteo) ->
             System.out.println("Producto: " + producto + " - Reseñas positivas : " + conteo)
         );
+
+        // Mostrar el ranking de productos por número de reseñas positivas
+        System.out.println("\n=== Ranking de productos por reseñas positivas ===");
+        List<Map.Entry<Producto, Long>> rankingProductos = processor.rankingProductosPorResenasPositivas();
+        rankingProductos.forEach(entry ->
+            System.out.println("Producto: " + entry.getKey() + " - Reseñas positivas: " + entry.getValue())
+        );
     }
 }
