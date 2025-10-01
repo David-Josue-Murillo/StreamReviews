@@ -38,5 +38,14 @@ public class Main {
         List<Review> positiveReviews = processor.filtrarResenasPositivas();
         System.out.println("=== Reseñas positivas ===");
         positiveReviews.forEach(review -> System.out.println("- " + review.getText()));
+
+
+        // Agrupar y mostrar las reseñas positivas por producto
+        System.out.println("\n === Reseñas positivas agrupadas por producto ===");
+        Map<Producto, List<Review>> reviewsAgrupadasPorProducto = processor.agruparResenasPorProducto();
+        reviewsAgrupadasPorProducto.forEach((producto, resenas) -> {
+            System.out.println("Producto: " + producto);
+            resenas.forEach(resena -> System.out.println(" - " + resena.getText()));
+        });
     }
 }
