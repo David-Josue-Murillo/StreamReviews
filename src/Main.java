@@ -20,5 +20,12 @@ public class Main {
                 new Review("R009", cliente3, Producto.ALTAVOCES, "Maravilloso diseño y potencia."),
                 new Review("R010", cliente1, Producto.CAMARA, "No cumple con mis expectativas.")
         );
+
+        ReviewProcessor processor = new ReviewProcessor(reviews);
+
+        // Filtrar y mostrar las reseñas positivas
+        List<Review> positiveReviews = processor.filtrarResenasPositivas();
+        System.out.println("Reseñas positivas:");
+        positiveReviews.forEach(review -> System.out.println("- " + review.getText()));
     }
 }
