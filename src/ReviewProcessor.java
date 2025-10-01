@@ -27,7 +27,6 @@ public class ReviewProcessor {
 
     // Agrupar las reseñas positivas por producto
     public Map<Producto, List<Review>> agruparResenasPorProducto() {
-        // Implementación pendiente
         return filtrarResenasPositivas()
                 .stream()
                 .collect(Collectors.groupingBy(Review::getProducto));
