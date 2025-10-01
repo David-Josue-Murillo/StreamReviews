@@ -10,11 +10,11 @@ public class Main {
         Cliente cliente3 = new Cliente("C003", "Luis Rodríguez");
 
         List<Review> reviews = List.of(
-                new Review("R001", cliente1, Producto.COMPUTADORA, "Excelente producto, muy recomendado."),
+                new Review("R001", cliente1, Producto.AURICULARES, "Excelente producto, muy recomendado."),
                 new Review("R002", cliente2, Producto.MOUSE, "No me gustó, esperaba más."),
-                new Review("R003", cliente3, Producto.TECLADO, "Muy bueno para el precio."),
+                new Review("R003", cliente3, Producto.ALTAVOCES, "Muy bueno para el precio."),
                 new Review("R004", cliente1, Producto.MONITOR, "Muy mala calidad de imagen."),
-                new Review("R005", cliente2, Producto.IMPRESORA, "Satisfecho con la compra."),
+                new Review("R005", cliente2, Producto.TABLET, "Satisfecho con la compra."),
                 new Review("R006", cliente3, Producto.TABLET, "Perfecto para mis necesidades."),
                 new Review("R007", cliente1, Producto.CELULAR, "Mal rendimiento y poca duración batería."),
                 new Review("R008", cliente2, Producto.AURICULARES, "Increible calidad de sonido."),
